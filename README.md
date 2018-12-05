@@ -21,3 +21,12 @@ Help young chinese people learn to program in their native mandarin
 - var (variable) -> ?
 - if -> ruguo
 - else -> buyaoran
+
+## Usage
+
+- ```zou```
+- ```zou && go build```
+
+## Installation
+
+TBD -> go gettable
