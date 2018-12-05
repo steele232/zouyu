@@ -26,6 +26,7 @@ Help young chinese people learn to program in their native mandarin
 
 - ```zou```
 - ```zou && go build```
+- (Create a Youtube/Youku video showing how to use it)
 
 ## Installation
 
