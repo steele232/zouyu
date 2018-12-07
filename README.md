@@ -53,7 +53,7 @@ Help young chinese people learn to program in their native mandarin
 ## Installation
 
 - TODO -> go gettable 
-- ? Try ```go get "github.com/steele232/zouyu"```
+- ? Try ```go get "github.com/steele232/zouyu/zou"```
 
 
 ## Contributing
