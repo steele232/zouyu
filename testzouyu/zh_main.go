@@ -1,17 +1,22 @@
 // +build ignore
 
-package main
+包裹 主要
 
-import (
+进口 (
 	"time"
 	"fmt"
 )
 
-func main() {
+子程序 主要() {
 
 	fmt.Println("ZouYu test started")
 
-	走 func() {
+	走 子程序() {
+		fmt.Println("How about that. ")
+	}()
+	time.Sleep(2 *time.Second)
+
+	走 子程序() {
 		fmt.Println("How about that. ")
 	}()
 	time.Sleep(2 *time.Second)

@@ -7,6 +7,18 @@ import (
 	"regexp"
 )
 
+var conversionTable = map[string]string{
+	"走":   "go",
+	"包裹":  "package",
+	"进口":  "import",
+	"子程序": "function", //subroutine
+	"主要":  "main",
+	"退还":  "return",
+	"如果":  "if",
+	"否则":  "else",
+	"出":   "A", // to export a function / struct-field
+}
+
 func ConvertAll() {
 
 	// iterate through all files,
@@ -45,27 +57,37 @@ func writeConvertedFile(filename, newfilename string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Println(string(dat))
 
-	cleanUpFile(filename)
+	// cleanUpFile(filename)
 
-	// use regexp to search and replace "走" with zou.
-	var re = regexp.MustCompile(`走`)
-	s := re.ReplaceAllString(string(dat), `go`)
+	file := string(dat)
 
-	re = regexp.MustCompile(`\/\/\ \+build\ ignore\n+package`)
-	convertedText := re.ReplaceAllString(s, `package`)
+	// do all the translations
+	for k, v := range conversionTable {
+		file = searchAndReplace(file, k, v)
+	}
 
-	fmt.Println(convertedText)
+	// remove the build constraint by itself
+	var re = regexp.MustCompile(`\/\/\ \+build\ ignore\n+package`)
+	file = re.ReplaceAllString(file, `package`)
+	fmt.Println(file)
 
 	// then write converted text to the new filename
-	bytes := []byte(convertedText)
+	bytes := []byte(file)
 	err = ioutil.WriteFile("en_"+newfilename, bytes, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	fmt.Println("conversion completed")
+}
+
+func searchAndReplace(input, findRegEx, replace string) string {
+	var re = regexp.MustCompile(findRegEx)
+	s := re.ReplaceAllString(input, replace)
+	return s
 }
 
 // cleanUpFile
