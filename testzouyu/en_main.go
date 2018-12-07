@@ -7,7 +7,12 @@ import (
 
 func main() {
 
-	fmt.Println("ZouYu test started")
+	fmt.Println("go语考试开始了")
+
+	项目 := make([]int, 3)
+	for _, v := range(项目) {
+		fmt.Println(v)
+	}
 
 	go func() {
 		fmt.Println("How about that. ")

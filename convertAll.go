@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"regexp"
+	"strings"
 )
 
 var conversionTable = map[string]string{
@@ -17,6 +18,7 @@ var conversionTable = map[string]string{
 	"如果":  "if",
 	"否则":  "else",
 	"出":   "A", // to export a function / struct-field
+	"做":   "make",
 }
 
 func ConvertAll() {
@@ -41,7 +43,36 @@ func ConvertAll() {
 		if name[len(name)-3:] != ".go" {
 			continue
 		}
-		writeConvertedFile(name, name[3:])
+		cleanUpFile(name) //clean up file BEFORE converting it
+		newfilename := "en_" + name[3:]
+		writeConvertedFile(name, newfilename)
+	}
+}
+
+// It is best to clean up the file
+// BEFORE converting it.
+// Otherwise, there could be unnecessary build difficulties.
+//
+// Contribute: anything else necessary to make sure that the build process is as smooth as possible
+func cleanUpFile(filename string) {
+
+	// start by loading in the file
+	dat, err := ioutil.ReadFile(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	file := string(dat)
+
+	containsBuildConstraint := strings.HasPrefix(file, "// +build ignore")
+	if containsBuildConstraint == false {
+		file = searchAndReplace(file, "包裹", "// +build ignore\n\n包裹")
+	}
+
+	// then write converted text to the new filename
+	bytes := []byte(file)
+	err = ioutil.WriteFile(filename, bytes, 0644)
+	if err != nil {
+		log.Fatal(err)
 	}
 }
 
@@ -58,13 +89,14 @@ func writeConvertedFile(filename, newfilename string) {
 		log.Fatal(err)
 	}
 
-	fmt.Println(string(dat))
-
-	// cleanUpFile(filename)
-
 	file := string(dat)
 
-	// do all the translations
+	fmt.Println(file)
+
+	// makes sure that the zh_ file has a build constraint on it
+	cleanUpFile(filename)
+
+	// do all the translations for the file
 	for k, v := range conversionTable {
 		file = searchAndReplace(file, k, v)
 	}
@@ -76,7 +108,7 @@ func writeConvertedFile(filename, newfilename string) {
 
 	// then write converted text to the new filename
 	bytes := []byte(file)
-	err = ioutil.WriteFile("en_"+newfilename, bytes, 0644)
+	err = ioutil.WriteFile(newfilename, bytes, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -88,14 +120,4 @@ func searchAndReplace(input, findRegEx, replace string) string {
 	var re = regexp.MustCompile(findRegEx)
 	s := re.ReplaceAllString(input, replace)
 	return s
-}
-
-// cleanUpFile
-// TODO maybe implement some of the features here if they appeal to users.
-func cleanUpFile(filename string) {
-	//IDEAS:
-	// make sure there is a "// +build ignore" at the beginning of all "zh_" file
-	// and put it in, if there isn't one already...
-
-	// anything else necessary to make sure that the build process is as smooth as possible
 }
