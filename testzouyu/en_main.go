@@ -5,16 +5,16 @@ import (
 	"fmt"
 )
 
-function main() {
+func main() {
 
 	fmt.Println("ZouYu test started")
 
-	go function() {
+	go func() {
 		fmt.Println("How about that. ")
 	}()
 	time.Sleep(2 *time.Second)
 
-	go function() {
+	go func() {
 		fmt.Println("How about that. ")
 	}()
 	time.Sleep(2 *time.Second)

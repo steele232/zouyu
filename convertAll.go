@@ -11,7 +11,7 @@ var conversionTable = map[string]string{
 	"走":   "go",
 	"包裹":  "package",
 	"进口":  "import",
-	"子程序": "function", //subroutine
+	"子程序": "func", //subroutine
 	"主要":  "main",
 	"退还":  "return",
 	"如果":  "if",
