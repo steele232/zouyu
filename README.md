@@ -25,17 +25,27 @@ Help young chinese people learn to program in their native mandarin
 ### Future Developments
 
 #### All Keywords
-- for 
-- range
-- break
-- continue
-- switch
+- for 为?
+- range 每个?
+- break 打断？
+- continue 
+- switch 其中？
+- case 
+- default 
+- fallthrough 
+- select 要？
+- defer
+- goto - 过去
+
+#### All Data Type Keywords
 - type
 - interface
-
-#### All Data Types
-- string
+- const
+- var
+- map
 - channel
+- struct
+- string
 - int (32,64)
 - float (32,64)
 
