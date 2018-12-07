@@ -7,7 +7,7 @@
 	"fmt"
 )
 
-子程序 主要() {
+程序 主要() {
 
 	fmt.Println("走语考试开始了")
 
@@ -16,12 +16,12 @@
 		fmt.Println(v)
 	}
 
-	走 子程序() {
+	走 程序() {
 		fmt.Println("How about that. ")
 	}()
 	time.Sleep(2 *time.Second)
 
-	走 子程序() {
+	走 程序() {
 		fmt.Println("How about that. ")
 	}()
 	time.Sleep(2 *time.Second)
