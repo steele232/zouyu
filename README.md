@@ -65,4 +65,3 @@ If you stumble upon this project, feel free to start using it, and I would love 
 ## Disclaimers & Known Issues
 
 - I am working on linux and mac computers so far, so I don't know exactly how this will work on windows.
-- Because I'm doing a pretty simple search and replace. Any strings with any of the keywords in them will have those words replaced with their translated english keywords. Sorry! Someone could help me fix that. 
