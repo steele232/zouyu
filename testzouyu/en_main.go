@@ -7,6 +7,10 @@ import (
 
 func main() {
 
+	for i:=0; i < 10; i++ {
+		fmt.Printf("第%v个\n", i+1)
+	}
+
 	fmt.Println("走语考试开始了")
 
 	项目 := make([]int, 3)
