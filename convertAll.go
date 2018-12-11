@@ -21,27 +21,28 @@ import (
 // "switch" vs "select" .. A little fuzzy.. I differentiate that select choose channels of communication.
 // "range" a little weird.. but IDK
 var conversionTable = map[string]string{
-	"走":   "go",       //zou1
-	"包裹":  "package",  // bao3 guo3
-	"进口":  "import",   // jin4 kou3
-	"程序":  "func",     // cheng2 xu4 ; routine, taken from subroutine
-	"主要":  "main",     // zhu3 yao4
-	"返回":  "return",   // fan3 hui2 ; https://go-zh.org/doc/codewalk/sharemem/
-	"如果":  "if",       // ru2 guo3
-	"否则":  "else",     // fou3 ze2
-	"出":   "A",        // chu1 ; to export a function / struct-field
-	"做":   "make",     // zuo4
-	"循环":  "for",      // xun2 huan2 ; loop ... https://fanyi.baidu.com/#en/zh/for%20loop
-	"范围":  "range",    // fan4 wei2 ; range ... https://fanyi.baidu.com/#en/zh/range
-	"打断":  "break",    // da3 duan4
-	"前进":  "continue", // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
-	"选择":  "switch",   // xuan3 ze2 ; https://go-zh.org/ref/spec.old#Select%E8%AF%AD%E5%8F%A5
-	"选通信": "select",   // xuan3 tong1 xin1 ; https://fanyi.baidu.com/#en/zh/select
-	"假如":  "case",     // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
-	"默认":  "default",  // mo4 ren4 ; https://fanyi.baidu.com/#en/zh/Default%20Settings
-	"去":   "goto",     // qu4 ; https://golang.org/ref/spec#Goto_statements
-	"推迟":  "defer",    // tui1 chi2 ; https://fanyi.baidu.com/#en/zh/defer
-	"恐慌":  "panic",    // kuang3 huang1 ; https://go-zh.org/ref/spec.old
+	"走":   "go",          //zou1
+	"包裹":  "package",     // bao3 guo3
+	"进口":  "import",      // jin4 kou3
+	"程序":  "func",        // cheng2 xu4 ; routine, taken from subroutine
+	"主要":  "main",        // zhu3 yao4
+	"返回":  "return",      // fan3 hui2 ; https://go-zh.org/doc/codewalk/sharemem/
+	"如果":  "if",          // ru2 guo3
+	"否则":  "else",        // fou3 ze2
+	"出":   "A",           // chu1 ; to export a function / struct-field
+	"做":   "make",        // zuo4
+	"循环":  "for",         // xun2 huan2 ; loop ... https://fanyi.baidu.com/#en/zh/for%20loop
+	"范围":  "range",       // fan4 wei2 ; range ... https://fanyi.baidu.com/#en/zh/range
+	"打断":  "break",       // da3 duan4
+	"前进":  "continue",    // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
+	"选择":  "switch",      // xuan3 ze2 ; https://go-zh.org/ref/spec.old#Select%E8%AF%AD%E5%8F%A5
+	"选通信": "select",      // xuan3 tong1 xin1 ; https://fanyi.baidu.com/#en/zh/select
+	"假如":  "case",        // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
+	"默认":  "default",     // mo4 ren4 ; https://fanyi.baidu.com/#en/zh/Default%20Settings
+	"去":   "goto",        // qu4 ; https://golang.org/ref/spec#Goto_statements
+	"落下":  "fallthrough", // luo4 xia4 ; https://fanyi.baidu.com/#en/zh/fall
+	"推迟":  "defer",       // tui1 chi2 ; https://fanyi.baidu.com/#en/zh/defer
+	"恐慌":  "panic",       // kuang3 huang1 ; https://go-zh.org/ref/spec.old
 
 	"整数":  "int",       // zheng3 shu4
 	"浮点":  "float",     // fu2 dian3
