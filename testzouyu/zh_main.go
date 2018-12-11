@@ -21,12 +21,12 @@
 	}
 
 	走 程序() {
-		fmt.Println("How about that. ")
+		fmt.Println("时间过得很慢")
 	}()
 	time.Sleep(2 *time.Second)
 
 	走 程序() {
-		fmt.Println("How about that. ")
+		fmt.Println("时间过得很慢")
 	}()
 	time.Sleep(2 *time.Second)
 }

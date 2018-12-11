@@ -19,12 +19,12 @@ func main() {
 	}
 
 	go func() {
-		fmt.Println("How about that. ")
+		fmt.Println("时间过得很慢")
 	}()
 	time.Sleep(2 *time.Second)
 
 	go func() {
-		fmt.Println("How about that. ")
+		fmt.Println("时间过得很慢")
 	}()
 	time.Sleep(2 *time.Second)
 }

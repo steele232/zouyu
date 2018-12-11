@@ -1,9 +1,9 @@
 
-build: en_main.go
-	go build
+run:
+	zou && go run .
 
-en_main.go: zh_main.zou
-	zou
+build: 
+	zou && go build .
 
 clean: 
 	rm en_*

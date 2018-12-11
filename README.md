@@ -22,22 +22,20 @@ Help young chinese people learn to program in their native mandarin
 - export variables, functions, etc
 - make
 
-### Future Developments
-
-#### All Keywords
-- for 为?
-- range 每个?
-- break 打断？
+#### All Keywords (Completed)
+- for (still open for suggestions)
+- range (still open for suggestions)
+- break
 - continue 
-- switch 其中？
+- switch
 - case 
 - default 
-- fallthrough 
-- select 要？
+- fallthrough
+- select
 - defer
-- goto - 过去
+- goto
 
-#### All Data Type Keywords
+#### All Data Type Keywords (Complete)
 - type
 - interface
 - const
@@ -49,9 +47,13 @@ Help young chinese people learn to program in their native mandarin
 - int (32,64)
 - float (32,64)
 
+### Future Developments (Ideas)
+
 #### Other
-- traditional characters
-- wrapper library around stdlib functions so that we can use stdlib functions but still write in mandarin.
+- Traditional characters
+- Wrapper library around stdlib functions so that we can use stdlib functions but still write in mandarin.
+- Other educational resources to get people started
+- Chinese README
 
 ## Usage
 
