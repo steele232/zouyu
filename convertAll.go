@@ -47,6 +47,7 @@ var conversionTable = map[string]string{
 	"整数":  "int",       // zheng3 shu4
 	"浮点":  "float",     // fu2 dian3
 	"字符串": "string",    // zi4 fu2 chuan4
+	"字节":  "byte",      // zi4 jie2
 	"无符号": "uint",      // wu2 fu2 hao4 ; unsigned
 	"常量":  "const",     // chang2 liang4 ; https://fanyi.baidu.com/#en/zh/const
 	"变量":  "var",       // bian4 liang4 ; https://fanyi.baidu.com/#en/zh/variable
