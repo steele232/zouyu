@@ -168,10 +168,12 @@ func searchAndReplaceAll(input string) string {
 	// there's really only one way that Go treats UTF-8 specially,
 	// and that is when using a for range loop on a string.
 	// We've seen what happens with a regular for loop.
-	// A for range loop, by contrast, decodes one UTF-8-encoded
+	// A for-range-loop, by contrast, decodes one UTF-8-encoded
 	// rune ('rune' is synonymous with a 'UTF-8 code-point')
 	// on each iteration.
 	var isInQuotationBlock bool // starts at 0/false and flips on and off while parsing
+	var isInLineComment bool    // "//"
+	var isInBlockComment bool   // "/* */"
 	var sb strings.Builder
 	s := []byte(input)
 	for utf8.RuneCount(s) > 1 {
@@ -183,8 +185,54 @@ func searchAndReplaceAll(input string) string {
 		quote3Rune, _ := utf8.DecodeRuneInString("‘")
 		quote4Rune, _ := utf8.DecodeRuneInString("’")
 		quote5Rune, _ := utf8.DecodeRuneInString("'")
+		newLineRune, _ := utf8.DecodeRuneInString("\n")
+		leftSlashRune, _ := utf8.DecodeRuneInString("/")
+		asteriskRune, _ := utf8.DecodeRuneInString("*")
 
-		if runeValue == quoteRune || // determine if we are in a quotation block
+		// get 1st rune (runeValue)
+		// runeValue
+
+		// get 2nd rune (r2)
+		nextChar := s[rSize:]
+		r2, r2Size := utf8.DecodeRune(nextChar)
+
+		// get 3rd rune (r3)
+		nextChar = nextChar[r2Size:]
+		r3, r3Size := utf8.DecodeRune(nextChar)
+
+		/* determine if we are in a comment block */
+		// // line comment
+		if runeValue == leftSlashRune &&
+			r2 == leftSlashRune &&
+			isInBlockComment == false {
+
+			isInLineComment = true
+		}
+		if runeValue == newLineRune {
+			isInLineComment = false
+		}
+
+		// /**/ block comment
+		if runeValue == leftSlashRune &&
+			r2 == asteriskRune {
+
+			isInBlockComment = true
+		}
+		if runeValue == asteriskRune &&
+			r2 == leftSlashRune {
+
+			isInBlockComment = false
+		}
+
+		// write and don't convert if in comments
+		if isInLineComment || isInBlockComment {
+			sb.WriteRune(runeValue)
+			s = s[rSize:]
+			continue
+		}
+
+		// determine if we are in a quotation block
+		if runeValue == quoteRune ||
 			runeValue == backQuoteRune ||
 			runeValue == quote1Rune ||
 			runeValue == quote2Rune ||
@@ -197,7 +245,8 @@ func searchAndReplaceAll(input string) string {
 			s = s[rSize:]
 			continue
 		}
-		if isInQuotationBlock { // write without converting
+		// write and don't convert if in quotation block
+		if isInQuotationBlock {
 			sb.WriteRune(runeValue)
 			s = s[rSize:]
 			continue
@@ -207,12 +256,12 @@ func searchAndReplaceAll(input string) string {
 		// runeValue
 
 		// get 2nd rune (r2)
-		nextChar := s[rSize:]
-		r2, r2Size := utf8.DecodeRune(nextChar)
+		nextChar = s[rSize:]
+		r2, r2Size = utf8.DecodeRune(nextChar)
 
 		// get 3rd rune (r3)
 		nextChar = nextChar[r2Size:]
-		r3, r3Size := utf8.DecodeRune(nextChar)
+		r3, r3Size = utf8.DecodeRune(nextChar)
 
 		// now in source code ...
 		char := string(runeValue)
