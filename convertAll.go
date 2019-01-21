@@ -24,7 +24,8 @@ var conversionTable = map[string]string{
 	"走":   "go",          //zou1
 	"包裹":  "package",     // bao3 guo3
 	"进口":  "import",      // jin4 kou3
-	"程序":  "func",        // cheng2 xu4 ; routine, taken from subroutine
+	"進口":  "import",
+	"函數":  "func",        // cheng2 xu4 ; routine, taken from subroutine
 	"主要":  "main",        // zhu3 yao4
 	"返回":  "return",      // fan3 hui2 ; https://go-zh.org/doc/codewalk/sharemem/
 	"如果":  "if",          // ru2 guo3
@@ -32,9 +33,12 @@ var conversionTable = map[string]string{
 	"出":   "A",           // chu1 ; to export a function / struct-field
 	"做":   "make",        // zuo4
 	"循环":  "for",         // xun2 huan2 ; loop ... https://fanyi.baidu.com/#en/zh/for%20loop
+	"循環":  "for",
 	"范围":  "range",       // fan4 wei2 ; range ... https://fanyi.baidu.com/#en/zh/range
+	"範圍":  "range", 
 	"打断":  "break",       // da3 duan4
 	"前进":  "continue",    // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
+	"繼續":  "continue",    // ji4 xu4 * 
 	"选择":  "switch",      // xuan3 ze2 ; https://go-zh.org/ref/spec.old#Select%E8%AF%AD%E5%8F%A5
 	"选通信": "select",      // xuan3 tong1 xin1 ; https://fanyi.baidu.com/#en/zh/select
 	"假如":  "case",        // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
