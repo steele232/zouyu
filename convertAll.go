@@ -40,7 +40,9 @@ var conversionTable = map[string]string{
 	"前进":  "continue",    // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
 	"繼續":  "continue",    // ji4 xu4 * 
 	"选择":  "switch",      // xuan3 ze2 ; https://go-zh.org/ref/spec.old#Select%E8%AF%AD%E5%8F%A5
+	"开关语句":  "switch",    // https://baike.baidu.com/item/switch/18601752
 	"选通信": "select",      // xuan3 tong1 xin1 ; https://fanyi.baidu.com/#en/zh/select
+	"選擇": "select",    
 	"假如":  "case",        // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
 	"默认":  "default",     // mo4 ren4 ; https://fanyi.baidu.com/#en/zh/Default%20Settings
 	"去":   "goto",        // qu4 ; https://golang.org/ref/spec#Goto_statements
