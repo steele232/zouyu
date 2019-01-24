@@ -21,47 +21,59 @@ import (
 // "switch" vs "select" .. A little fuzzy.. I differentiate that select choose channels of communication.
 // "range" a little weird.. but IDK
 var conversionTable = map[string]string{
-	"走":   "go",          //zou1
-	"包裹":  "package",     // bao3 guo3
-	"进口":  "import",      // jin4 kou3
-	"進口":  "import",
-	"函數":  "func",        // cheng2 xu4 ; routine, taken from subroutine
-	"主要":  "main",        // zhu3 yao4
-	"返回":  "return",      // fan3 hui2 ; https://go-zh.org/doc/codewalk/sharemem/
-	"如果":  "if",          // ru2 guo3
-	"否则":  "else",        // fou3 ze2
-	"出":   "A",           // chu1 ; to export a function / struct-field
-	"做":   "make",        // zuo4
-	"循环":  "for",         // xun2 huan2 ; loop ... https://fanyi.baidu.com/#en/zh/for%20loop
-	"循環":  "for",
-	"范围":  "range",       // fan4 wei2 ; range ... https://fanyi.baidu.com/#en/zh/range
-	"範圍":  "range", 
-	"打断":  "break",       // da3 duan4
-	"前进":  "continue",    // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
-	"繼續":  "continue",    // ji4 xu4 * 
-	"选择":  "switch",      // xuan3 ze2 ; https://go-zh.org/ref/spec.old#Select%E8%AF%AD%E5%8F%A5
-	"开关语句":  "switch",    // https://baike.baidu.com/item/switch/18601752
-	"选通信": "select",      // xuan3 tong1 xin1 ; https://fanyi.baidu.com/#en/zh/select
-	"選擇": "select",    
-	"假如":  "case",        // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
-	"默认":  "default",     // mo4 ren4 ; https://fanyi.baidu.com/#en/zh/Default%20Settings
-	"去":   "goto",        // qu4 ; https://golang.org/ref/spec#Goto_statements
-	"落下":  "fallthrough", // luo4 xia4 ; https://fanyi.baidu.com/#en/zh/fall
-	"推迟":  "defer",       // tui1 chi2 ; https://fanyi.baidu.com/#en/zh/defer
-	"恐慌":  "panic",       // kuang3 huang1 ; https://go-zh.org/ref/spec.old
+	"走":    "go",          //zou3
+	"包裹":   "package",     // bao3 guo3
+	"进口":   "import",      // jin4 kou3
+	"進口":   "import",      // jin4 kou3 traditional
+	"函数":   "func",        // han2 shu4 ; function (math) https://blog.csdn.net/tzs919/article/details/53571632
+	"函數":   "func",        // han2 shu4 traditional
+	"主要":   "main",        // zhu3 yao4
+	"返回":   "return",      // fan3 hui2 ; https://go-zh.org/doc/codewalk/sharemem/, https://blog.csdn.net/tzs919/article/details/53571632
+	"如果":   "if",          // ru2 guo3
+	"否则":   "else",        // fou3 ze2
+	"否則":   "else",        // fou3 ze2 traditional
+	"出":    "A",           // chu1 ; to export a function / struct-field
+	"初始化":  "make",        // chu1 shi3 hua4 ; https://blog.csdn.net/tzs919/article/details/53571632
+	"循环":   "for",         // xun2 huan2 ; loop ... https://fanyi.baidu.com/#en/zh/for%20loop
+	"循環":   "for",         // xun2 huan2 traditional
+	"范围":   "range",       // fan4 wei2 ; range ... https://fanyi.baidu.com/#en/zh/range
+	"範圍":   "range",       // fan4 wei2 traditional
+	"打断":   "break",       // da3 duan4
+	"中断":   "break",       // zhong1 duan4 https://blog.csdn.net/u014805066/article/details/50587309
+	"跳出":   "break",       // tiao4 chu1 ; just an idea from https://baike.baidu.com/item/switch/18601752
+	"前进":   "continue",    // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
+	"繼續":   "continue",    // ji4 xu4 *
+	"开关语句": "switch",      // kai1 guan1 yu3 ju4 ; https://baike.baidu.com/item/switch/18601752
+	"開關語句": "switch",      // kai1 guan1 yu3 ju4 traditional
+	"切换":   "switch",      // qie1 huan4 (just an idea??); https://baike.baidu.com/item/switch/18601752
+	"选择":   "select",      // xuan3 ze2 ; https://go-zh.org/ref/spec.old#Select%E8%AF%AD%E5%8F%A5
+	"選擇":   "select",      // xuan3 ze2 traditional
+	"假如":   "case",        // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
+	"默认":   "default",     // mo4 ren4 ; https://fanyi.baidu.com/#en/zh/Default%20Settings
+	"去":    "goto",        // qu4 ; https://golang.org/ref/spec#Goto_statements
+	"落下":   "fallthrough", // luo4 xia4 ; https://fanyi.baidu.com/#en/zh/fall
+	"推迟":   "defer",       // tui1 chi2 ; https://fanyi.baidu.com/#en/zh/defer
+	"恐慌":   "panic",       // kuang3 huang1 ; https://go-zh.org/ref/spec.old
 
-	"整数":  "int",       // zheng3 shu4
-	"浮点":  "float",     // fu2 dian3
+	"整数":  "int",       // zheng3 shu4 ;
+	"整數":  "int",       // zheng3 shu4 traditional
+	"浮点数": "float",     // fu2 dian3 shu4 ; https://blog.csdn.net/u014805066/article/details/50587309
+	"浮點數": "float",     // fu2 dian3 shu4 traditional
 	"字符串": "string",    // zi4 fu2 chuan4
 	"字节":  "byte",      // zi4 jie2
+	"字節":  "byte",      // zi4 jie2 traditional
 	"无符号": "uint",      // wu2 fu2 hao4 ; unsigned
+	"無符號": "uint",      // wu2 fu2 hao4 traditional
 	"常量":  "const",     // chang2 liang4 ; https://fanyi.baidu.com/#en/zh/const
-	"变量":  "var",       // bian4 liang4 ; https://fanyi.baidu.com/#en/zh/variable
+	"变量":  "var",       // bian4 liang4 ; https://fanyi.baidu.com/#en/zh/variable, https://blog.csdn.net/tzs919/article/details/53571632
+	"變量":  "var",       // bian4 liang4 traditional
 	"映射":  "map",       // ying4 she4 ; https://go-zh.org/doc/codewalk/sharemem/
 	"信道":  "chan",      // xin4 dao4 ; https://go-zh.org/ref/spec.old#%E4%BF%A1%E9%81%93%E7%B1%BB%E5%9E%8B
-	"结构":  "struct",    // jie2 gou4 ; struct https://fanyi.baidu.com/#en/zh/struct
+	"结构体": "struct",    // jie2 gou4 ti3; struct https://blog.csdn.net/u014805066/article/details/50587309
+	"結構體": "struct",    // jie2 gou4 ti3 traditional
 	"类型":  "type",      // lei4 xing2 ; type https://fanyi.baidu.com/#en/zh/struct
-	"接口":  "interface", // jie1 kou3 ; interface https://go-zh.org/doc/codewalk/sharemem/
+	"類型":  "type",      // lei4 xing2 tradtional
+	"接口":  "interface", // jie1 kou3 ; interface https://go-zh.org/doc/codewalk/sharemem/, https://blog.csdn.net/tzs919/article/details/53571632
 
 }
 
