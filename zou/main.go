@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	zouyu.ConvertAll()
+	zouyu.ConvertAllFilesInDir()
 }

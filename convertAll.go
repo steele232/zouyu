@@ -77,7 +77,7 @@ var conversionTable = map[string]string{
 
 }
 
-func ConvertAll() {
+func ConvertAllFilesInDir() {
 
 	// get all files
 	files, err := ioutil.ReadDir("./")
@@ -151,12 +151,8 @@ func writeConvertedFile(filename, newfilename string) {
 	}
 	file := string(dat)
 
-	// do all the translations for the file
-	file = searchAndReplaceAll(file)
-
-	// remove the build constraint from the en_ version of the file
-	var re = regexp.MustCompile(`\/\/\ \+build\ ignore\n+package`)
-	file = re.ReplaceAllString(file, `package`)
+	//convert the file.
+	file = ConvertFile(file)
 
 	fmt.Println(file)
 	// then write converted text to the new filename
@@ -167,6 +163,39 @@ func writeConvertedFile(filename, newfilename string) {
 	}
 
 	fmt.Println("conversion completed")
+}
+
+// ConvertFile takes an "zh_" file as a string
+// and converts it to an "en_" file as a string,
+// which means that it is ready to be compiled.
+//
+// Another useful detail is that if there is a
+// build ignore ("// +build ignore") at the
+// beginning of the "zh_" file, then it will be
+// removed.
+func ConvertFile(file string) string {
+
+	// do all the translations for the file
+	file = searchAndReplaceAll(file)
+
+	// remove the build constraint from the en_ version of the file
+	file = removeBuildConstraints(file)
+
+	return file
+}
+
+// removeBuildConstraints assumes that an english
+// source file with a build ignore constraint is
+// inputted as a string.
+// In the context of this program, that would mean
+// that the "zh_" file has been converted into a
+// "zh_" file but didn't have the build constraints
+// removed yet.
+func removeBuildConstraints(file string) string {
+
+	var re = regexp.MustCompile(`\/\/\ \+build\ ignore\n+package`)
+	file = re.ReplaceAllString(file, `package`)
+	return file
 }
 
 // Traverses the source code (assumed to be UTF-8)
