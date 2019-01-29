@@ -50,6 +50,7 @@ var conversionTable = map[string]string{
 	"選擇":   "select",      // xuan3 ze2 traditional
 	"假如":   "case",        // jia3 ru2 ; https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=if
 	"默认":   "default",     // mo4 ren4 ; https://fanyi.baidu.com/#en/zh/Default%20Settings
+	"默認":   "default",     // mo4 ren4  traditional
 	"去":    "goto",        // qu4 ; https://golang.org/ref/spec#Goto_statements
 	"落下":   "fallthrough", // luo4 xia4 ; https://fanyi.baidu.com/#en/zh/fall
 	"推迟":   "defer",       // tui1 chi2 ; https://fanyi.baidu.com/#en/zh/defer
