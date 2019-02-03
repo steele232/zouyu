@@ -9,7 +9,7 @@ import (
 	"unicode/utf8"
 )
 
-// our parsing function "searchAndReplaceAll"
+// our parsing function "SearchAndReplaceAll"
 // allows for keywords as large as 3 chinese characters,
 // but it could change to have to have more,
 // without out too much effort.
@@ -177,7 +177,7 @@ func writeConvertedFile(filename, newfilename string) {
 func ConvertFile(file string) string {
 
 	// do all the translations for the file
-	file = searchAndReplaceAll(file)
+	file = SearchAndReplaceAll(file)
 
 	// remove the build constraint from the en_ version of the file
 	file = removeBuildConstraints(file)
@@ -208,7 +208,7 @@ func removeBuildConstraints(file string) string {
 // Resources:
 // https://github.com/steele232/zouyu/wiki/GoLang-Source-Code-is-DEFINED-as-UTF-8
 // https://blog.golang.org/strings
-func searchAndReplaceAll(input string) string {
+func SearchAndReplaceAll(input string) string {
 
 	// https://blog.golang.org/strings
 	//
