@@ -69,8 +69,8 @@ Here is a table of the Confidence levels of Translations between ZouYu keywords 
 | `"打断"` |  "break" | 70 | |
 | `"中断"` |  "break" | 90 | [5][5] |
 | `"跳出"` |  "break" | 30 | [6][6] |
-| `"前进"` |  "continue" | 60 | [7][7] |
-| `"繼續"` |  "continue" | 70 | [7][7] |
+| `"继续"` |  "continue" | 100 |  |
+| `"繼續"` |  "continue" | 100 |  |
 | `"开关语句"` |  "switch" | 80 | [6][6] |
 | `"開關語句"` |  "switch" | 80 | [6][6] |
 | `"切换"` |  "switch" | 30 | [6][6] |
