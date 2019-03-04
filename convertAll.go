@@ -41,8 +41,8 @@ var conversionTable = map[string]string{
 	"打断":   "break",       // da3 duan4
 	"中断":   "break",       // zhong1 duan4 https://blog.csdn.net/u014805066/article/details/50587309
 	"跳出":   "break",       // tiao4 chu1 ; just an idea from https://baike.baidu.com/item/switch/18601752
-	"前进":   "continue",    // qian2 jin4 ; https://fanyi.baidu.com/#zh/en/%E5%89%8D%E8%BF%9B
-	"繼續":   "continue",    // ji4 xu4 *
+	"继续":   "continue",    // ji4 xu4 ; simplified - source: people I've met
+	"繼續":   "continue",    // ji4 xu4 ; traditional
 	"开关语句": "switch",      // kai1 guan1 yu3 ju4 ; https://baike.baidu.com/item/switch/18601752
 	"開關語句": "switch",      // kai1 guan1 yu3 ju4 traditional
 	"切换":   "switch",      // qie1 huan4 (just an idea??); https://baike.baidu.com/item/switch/18601752
