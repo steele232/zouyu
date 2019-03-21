@@ -64,8 +64,8 @@ Here is a table of the Confidence levels of Translations between ZouYu keywords 
 | `"初始化"` |  "make" | 70 | [1][1] |
 | `"循环"` |  "for" | 99 | [3][3] |
 | `"循環"` |  "for" | 99 | [3][3] |
-| `"范围"` |  "range" | 50 | |
-| `"範圍"` |  "range" | 50 | |
+| `"范围"` |  "range" | 90 | |
+| `"範圍"` |  "range" | 90 | |
 | `"打断"` |  "break" | 70 | |
 | `"中断"` |  "break" | 90 | [5][5] |
 | `"跳出"` |  "break" | 30 | [6][6] |
