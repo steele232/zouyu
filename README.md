@@ -33,16 +33,6 @@ Help young chinese people learn to program in their native mandarin
 
 - I am working on linux and mac computers so far, so I don't know exactly how this will work on windows.
 
-## Contributing
-
-Feel free to help this project succeed by
-
-- Giving the Repo a Star on [Github](www.github.com/steele232/zouyu)!
-- Subscribe to notifications by "Watching" the Repo on [Github](www.github.com/steele232/zouyu)!
-- Consider helping with Translations if you speak Mandarin!
-- **Try using the tool!**
-- Give Feedback! (Find bugs, Report Issues, Consider possible Feature Requests etc)
-
 ### Translation Quality Confidence Levels
 
 Here is a table of the Confidence levels of Translations between ZouYu keywords and original GoLang keywords:
@@ -50,58 +40,57 @@ Here is a table of the Confidence levels of Translations between ZouYu keywords 
 | Character(s) | Go Keyword | Confidence Level (%) | Links |
 | --- | --- | --- | --- |
 | `"走"` | "go" | 100 | |
-| `"包裹"` | "package" | 100 | |
-| `"进口"` |  "import" | 100 | |
-| `"進口"` |  "import" | 100 | |
-| `"函数"` |  "func" | 99 | [1][1] |
-| `"函數"` |  "func" | 99 | [1][1] |
+| `"包"` | "package" | 100 | |
+| `"导入"` |  "import" | 100 | |
+| `"導入"` |  "import" | 100 | |
+| `"函数"` |  "func" | 100 | [1][1] |
+| `"函數"` |  "func" | 100 | [1][1] |
 | `"主要"` |  "main" | 100 | |
 | `"返回"` |  "return" | 100 | [1][1], [2][2] |
 | `"如果"` |  "if" | 100 | |
-| `"否则"` |  "else" | 99 | |
-| `"否則"` |  "else" | 99 | |
-| `"出"` |  "A" (to export) | 50 | |
-| `"初始化"` |  "make" | 70 | [1][1] |
-| `"循环"` |  "for" | 99 | [3][3] |
-| `"循環"` |  "for" | 99 | [3][3] |
-| `"范围"` |  "range" | 90 | |
-| `"範圍"` |  "range" | 90 | |
-| `"打断"` |  "break" | 70 | |
-| `"中断"` |  "break" | 90 | [5][5] |
-| `"跳出"` |  "break" | 30 | [6][6] |
+| `"否则"` |  "else" | 100 | |
+| `"否則"` |  "else" | 100 | |
+| `"导出"` |  "A" (to export) | 60 | This is kind of problematic |
+| `"创建"` |  "make" | 80 | [1][1] |
+| `"创建"` |  "make" | 80 | [1][1] |
+| `"循环"` |  "for" | 100 | [3][3] |
+| `"循環"` |  "for" | 100 | [3][3] |
+| `"范围"` |  "range" | 95 | |
+| `"範圍"` |  "range" | 95 | |
+| `"终止"` |  "break" | 95 | |
+| `"終止"` |  "break" | 95 | |
 | `"继续"` |  "continue" | 100 |  |
 | `"繼續"` |  "continue" | 100 |  |
-| `"开关语句"` |  "switch" | 80 | [6][6] |
-| `"開關語句"` |  "switch" | 80 | [6][6] |
-| `"切换"` |  "switch" | 30 | [6][6] |
-| `"选择"` |  "select" | 99 | [8][8] |
-| `"選擇"` |  "select" | 99 | [8][8] |
-| `"假如"` |  "case" | 99 | [9][9] |
-| `"默认"` |  "default" | 99 | [10][10] |
-| `"默認"` |  "default" | 99 | [10][10] |
-| `"去"` |  "goto" | 95 | [11][11]|
-| `"落下"` |  "fallthrough" | 90 | [12][12] |
+| `"开关"` |  "switch" | 80 | [6][6] |
+| `"開關"` |  "switch" | 80 | [6][6] |
+| `"选择"` |  "select" | 100 | [8][8] |
+| `"選擇"` |  "select" | 100 | [8][8] |
+| `"假如"` |  "case" | 90 | [9][9] |
+| `"默认"` |  "default" | 100 | [10][10] |
+| `"默認"` |  "default" | 100 | [10][10] |
+| `"去到"` |  "goto" | 95 | [11][11]|
+| `"落下"` |  "fallthrough" | 80 | [12][12] |
 | `"推迟"` |  "defer" | 95 | [13][13] |
 | `"恐慌"` |  "panic" | 100 | [14][14] |
-| `"整数"` |  "int" | 99 | |
-| `"整數"` |  "int" | 99 | |
-| `"浮点数"` |  "float" | 99 | [15][15] |
-| `"浮點數"` |  "float" | 99 | [15][15] |
-| `"字符串"` |  "string" | 99 | |
+| `"整数"` |  "int" | 100 | |
+| `"整數"` |  "int" | 100 | |
+| `"浮点数"` |  "float" | 100 | [15][15] |
+| `"浮點數"` |  "float" | 100 | [15][15] |
+| `"字符串"` |  "string" | 100 | |
 | `"字节"` |  "byte" | 100 | |
 | `"字節"` |  "byte" | 100 | |
 | `"无符号"` |  "uint" (shorten to "u"?) | 50 | |
 | `"無符號"` |  "uint" (shorten to "u"?) | 50 | |
-| `"常量"` |  "const" | 99 | [16][16] |
-| `"变量"` |  "var" | 99 | [17][17], [1][1] |
-| `"變量"` |  "var" | 99 | [17][17], [1][1] |
-| `"映射"` |  "map" | 95 | [2][2] |
-| `"信道"` |  "chan" | 95 | [18][18] |
+| `"常量"` |  "const" | 100 | [16][16] |
+| `"变量"` |  "var" | 100 | [17][17], [1][1] |
+| `"變量"` |  "var" | 100 | [17][17], [1][1] |
+| `"映射"` |  "map" | 90 | [2][2] |
+| `"管道"` |  "chan" | 99 | [18][18] |
 | `"结构体"` |  "struct" | 100 | [15][15] |
 | `"結構體"` |  "struct" | 100 | [15][15] |
 | `"类型"` |  "type" | 100 | [19][19] |
 | `"類型"` |  "type" | 100 | [19][19] |
-| `"接口"` |  "interface" | 99 | [2][2], [1][1] |
+| `"接口"` |  "interface" | 100 | [2][2], [1][1] |
 
 
 [1]: https://blog.csdn.net/tzs919/article/details/53571632 
@@ -124,6 +113,12 @@ Here is a table of the Confidence levels of Translations between ZouYu keywords 
 [18]: https://go-zh.org/ref/spec.old#%E4%BF%A1%E9%81%93%E7%B1%BB%E5%9E%8B "Chinese Go Documentation @ Chan (Channels)"
 [19]: https://fanyi.baidu.com/#en/zh/struct "Baidu Translate @ Struct"
 
-## Thanks for looking at this Repo!
+## Contributing
 
-Please think about [Contributing](Contributing)
+PLEASE Feel free to help this project succeed by
+
+- Giving the Repo a Star on [Github](www.github.com/steele232/zouyu)!
+- Subscribe to notifications by "Watching" the Repo on [Github](www.github.com/steele232/zouyu)!
+- Consider helping with Translations if you speak Mandarin!
+- **Try using the tool!**
+- Give Feedback! (Find bugs, Report Issues, Consider possible Feature Requests etc)
