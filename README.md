@@ -2,9 +2,17 @@
 
 ## Overview
 
+The ZouYu tool takes golang source code written in mandarin and translates keywords to english for compilation by the standard golang tooling. 
+
+This enables Golang programmers to program entirely in mandarin. 
+
 #### Purpose 
 
 Help young chinese people learn to program in their native mandarin
+
+## Installation
+
+- ```go install "github.com/steele232/zouyu/zou"```
 
 ## Usage
 
@@ -12,10 +20,6 @@ Help young chinese people learn to program in their native mandarin
 - ```zou``` takes all "zh_..." (e.g. "zh_main.go") files in the current directory and converts them to "en_..." files, which are then ready for compilation.
 - You can combine ```zou``` with go commands on bash like so: ```zou && go run .``` or ```zou && go build .```. You can 
 - [**Not Started**] (Create a Youtube/Youku video showing how to use it)
-
-## Installation
-
-- ```go install "github.com/steele232/zouyu/zou"```
 
 ## Roadmap
 
